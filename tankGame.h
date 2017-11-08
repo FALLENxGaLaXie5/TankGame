@@ -22,6 +22,6 @@ extern GLfloat RotationTank[NumAxes];
 void SetMaterial(vec4 ka, vec4 kd, vec4 ks, float s);
 void SetLight( vec4 lpos, vec4 la, vec4 ld, vec4 ls );
 void drawTankCube(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transformTank);
-void drawCubeStatic(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transform);
+void drawCubeStatic(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, vec4 lpos);
 void drawSphere(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation);
 void drawCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation);

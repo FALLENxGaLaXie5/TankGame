@@ -238,8 +238,10 @@ drawTankCube(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 t
     glDrawArrays( GL_TRIANGLES, 0, NumVerticesCube );
 }
 
-void drawCubeStatic(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transform)
+void drawCubeStatic(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, vec4 lpos)
 {
+    
+    glUniform4fv( glGetUniformLocation(program, "LightPosition"), 1, lpos);
     glBindTexture( GL_TEXTURE_2D, textures[1] );
     glUniform1i( glGetUniformLocation(program, "texture_on"),false );
     
