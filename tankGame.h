@@ -25,3 +25,4 @@ void drawTankCube(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, m
 void drawCubeStatic(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transform);
 void drawSphere(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation);
 void drawCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation);
+void drawTankCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transformTank);

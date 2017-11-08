@@ -291,6 +291,27 @@ void drawCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation)
     glDrawArrays( GL_TRIANGLES, 0, NumVerticesCylinder );
 }
 
+void drawTankCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transformTank)
+{
+    glUniform1i( glGetUniformLocation(program, "texture_on"), false );
+    
+    SetMaterial( ka, kd, ks, 5.5);
+    glUniform1i( glGetUniformLocation(program, "light_out"), false );
+    
+    mat4 transform_tube = Translate( translation.x, translation.y, translation.z ) *
+    Scale(scalation.x, scalation.y, scalation.z);
+    
+    mat4 transform_tank = transformTank * transform_tube ;
+    
+    glUniformMatrix4fv( glGetUniformLocation( program, "model" ), 1, GL_TRUE, transform_tank );
+    
+    glVertexAttribPointer( vPosition, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(CYLINDER_OFFSET) );
+    glVertexAttribPointer( vNormal, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(CYLINDER_NORMALS_OFFSET) );
+    glDrawArrays( GL_TRIANGLES, 0, NumVerticesCylinder );
+    
+}
+
+
 void
 display( void )
 {

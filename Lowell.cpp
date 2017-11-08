@@ -45,24 +45,34 @@ void drawTank1()
     ka =vec4( 0.4, 0.4, 0.4, 1.0 );
     kd =vec4(0.0, 0.5, 0.1, 1.0);
     ks =vec4(0.2, 0.2, 0.2, 1.0);
-    translation = vec3( 0.0, 0.6, -0.3 );
+    translation = vec3( 0.0, 0.6, -0.0 );
     rotation = vec3( 0.0, 0.0, 0.0);
-    scalation = vec3(2.2, 0.7, 1.6);
+    scalation = vec3(2.4, 0.7, 2.6);
     drawTankCube(ka, kd, ks, translation, scalation, transformTank);
+    
+    //-------Head Cap
+    ka =vec4( 0.4, 0.4, 0.4, 1.0 );
+    kd =vec4(0.0, 0.5, 0.1, 1.0);
+    ks =vec4(0.2, 0.2, 0.2, 1.0);
+    translation = vec3( 0.0, 1.0, -0.0 );
+    rotation = vec3( 0.0, 0.0, 0.0);
+    scalation = vec3(2.0, 0.3, 2.0);
+    drawTankCylinder(ka, kd, ks, translation, scalation, transformTank);
     
     //------Barrel
     ka =vec4( 0.4, 0.4, 0.4, 1.0 );
     kd =vec4(0.0, 0.5, 0.1, 1.0);
     ks =vec4(0.2, 0.2, 0.2, 1.0);
-    translation = vec3( 0.0, 0.6, 1.5 );
+    translation = vec3( 0.0, 0.6, 2.0 );
     rotation = vec3( 0.0, 0.0, 0.0);
     scalation = vec3(0.3, 0.3, 2.0);
     drawTankCube(ka, kd, ks, translation, scalation, transformTank);
     
+    //-----Barrel Stub
     ka =vec4( 0.4, 0.4, 0.4, 1.0 );
     kd =vec4(0.0, 0.5, 0.1, 1.0);
     ks =vec4(0.2, 0.2, 0.2, 1.0);
-    translation = vec3( 0.0, 0.6, 1.5 );
+    translation = vec3( 0.0, 0.6, 3.0 );
     rotation = vec3( 0.0, 0.0, 0.0);
     scalation = vec3(0.5, 0.5, 0.2);
     drawTankCube(ka, kd, ks, translation, scalation, transformTank);
@@ -84,6 +94,16 @@ void drawTank1()
     rotation = vec3( 0.0, 0.0, 0.0);
     scalation = vec3(0.8, 0.7, 3.0);
     drawTankCube(ka, kd, ks, translation, scalation, transformTank);
+    
+    //------Treads
+    ka =vec4( 0.4, 0.4, 0.4, 1.0 );
+    kd =vec4(0.0, 0.5, 0.1, 1.0);
+    ks =vec4(0.2, 0.2, 0.2, 1.0);
+    translation = vec3( -1.4, -0.7, 0.0 );
+    rotation = vec3( 0.0, 0.0, 90);
+    scalation = vec3(0.8, 0.7, 2.8);
+    drawTankCylinder(ka, kd, ks, translation, scalation, transformTank);
+
     
     
 }
