@@ -291,14 +291,16 @@ void drawCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation)
     glDrawArrays( GL_TRIANGLES, 0, NumVerticesCylinder );
 }
 
-void drawTankCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, mat4 transformTank)
+void drawTankCylinder(vec4 ka, vec4 kd, vec4 ks, vec3 translation, vec3 scalation, vec3 rotation, mat4 transformTank)
 {
     glUniform1i( glGetUniformLocation(program, "texture_on"), false );
     
     SetMaterial( ka, kd, ks, 5.5);
     glUniform1i( glGetUniformLocation(program, "light_out"), false );
     
-    mat4 transform_tube = Translate( translation.x, translation.y, translation.z ) *
+    mat4 transform_tube =
+     Translate( translation.x, translation.y, translation.z ) *
+    RotateX(rotation.x) * RotateY(rotation.y) * RotateZ(rotation.z) *
     Scale(scalation.x, scalation.y, scalation.z);
     
     mat4 transform_tank = transformTank * transform_tube ;
@@ -456,13 +458,13 @@ keyboard( unsigned char key, int x, int y )
         case 'a':
             Axis = Yaxis;
             RotationTank[Axis] += 5.0;
-            RotationTank[Axis] = fmod(RotationTank[Axis], 360.0);
+            RotationTank[Axis] = fmod(RotationTank[Axis], 360);
             glutPostRedisplay();
             break;
         case 'd':
             Axis = Yaxis;
             RotationTank[Axis] -= 5.0;
-            RotationTank[Axis] = fmod(RotationTank[Axis], 360.0);
+            RotationTank[Axis] = fmod(RotationTank[Axis], 360);
             glutPostRedisplay();
             break;
         case 'w':

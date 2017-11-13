@@ -22,7 +22,7 @@ void drawTank1()
     vec4 ka, kd, ks;
     vec3 translation, rotation, scalation;
     
-    mat4 transformTank = RotateY(RotationTank[Yaxis]) * Translate(TranslationTank[Xaxis], TranslationTank[Yaxis],TranslationTank[Zaxis]);
+    mat4 transformTank =  Translate(TranslationTank[Xaxis], TranslationTank[Yaxis],TranslationTank[Zaxis]) * RotateY(RotationTank[Yaxis]) ;
 
     //-----Core
     ka =vec4( 0.4, 0.4, 0.4, 1.0 );
@@ -57,7 +57,7 @@ void drawTank1()
     translation = vec3( 0.0, 1.0, -0.0 );
     rotation = vec3( 0.0, 0.0, 0.0);
     scalation = vec3(2.0, 0.3, 2.0);
-    drawTankCylinder(ka, kd, ks, translation, scalation, transformTank);
+    drawTankCylinder(ka, kd, ks, translation, scalation, rotation, transformTank);
     
     //------Barrel
     ka =vec4( 0.4, 0.4, 0.4, 1.0 );
@@ -97,12 +97,22 @@ void drawTank1()
     
     //------Treads
     ka =vec4( 0.4, 0.4, 0.4, 1.0 );
-    kd =vec4(0.0, 0.5, 0.1, 1.0);
+    kd =vec4(1.0, 1.0, 1.0, 1.0);
     ks =vec4(0.2, 0.2, 0.2, 1.0);
-    translation = vec3( -1.4, -0.7, 0.0 );
+    translation = vec3( -1.4, -0.8, 0.0 );
     rotation = vec3( 0.0, 0.0, 90);
     scalation = vec3(0.8, 0.7, 2.8);
-    drawTankCylinder(ka, kd, ks, translation, scalation, transformTank);
+    drawTankCylinder(ka, kd, ks, translation, scalation, rotation, transformTank);
+    
+    ka =vec4( 0.4, 0.4, 0.4, 1.0 );
+    kd =vec4(1.0, 1.0, 1.0, 1.0);
+    ks =vec4(0.2, 0.2, 0.2, 1.0);
+    translation = vec3( 1.4, -0.8, 0.0 );
+    rotation = vec3( 0.0, 0.0, 90);
+    scalation = vec3(0.8, 0.7, 2.8);
+    drawTankCylinder(ka, kd, ks, translation, scalation, rotation, transformTank);
+    
+    
 
     
     
